@@ -1,0 +1,45 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+.env
+*.env
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Logs and debugging
+logs/
+*.log
+debug.log
+
+# Cache files
+.cache/
+*.cache
+
+# Dataset files (if they are large)
+*.csv
+*.xlsx
+
+# Python package-related
+*.egg-info/
+dist/
+build/
+
+# VS Code settings
+.vscode/
+
+# MacOS system files
+.DS_Store
+
+# Image outputs (generated charts)
+*.png
+
+# Streamlit & FastAPI-specific files
+.history/
+config.toml
+secrets.toml
