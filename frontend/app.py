@@ -85,7 +85,7 @@ with chat_container:
         if msg["role"] == "user":
             st.markdown(f'<div class="user-message">{msg["content"]}</div>', unsafe_allow_html=True)
         elif isinstance(msg["content"], Image.Image):  # If message is an image
-            st.image(msg["content"], use_column_width=False, width=200)  # Smaller image
+            st.image(msg["content"], use_container_width=False, width=200)  # Smaller image
         else:
             st.markdown(f'<div class="assistant-message">{msg["content"]}</div>', unsafe_allow_html=True)
 
