@@ -2,6 +2,7 @@ import streamlit as st
 import requests
 from PIL import Image
 import io
+import os
 
 # --- Custom CSS for Styling ---
 st.markdown("""
@@ -93,6 +94,10 @@ with chat_container:
 # --- Input Box (Fixed at Bottom) ---
 question = st.chat_input("📝 Type your message and press Enter...")
 
+# --- Backend URL (Local or Remote) ---
+# You can dynamically set the backend URL based on the environment or hardcode it.
+BACKEND_URL = os.getenv("BACKEND_URL", "http://127.0.0.1:8000/query/")  # Default to localhost if not set
+
 # --- Process User Input ---
 if question:
     # Store & Display User Message
@@ -103,7 +108,7 @@ if question:
 
     with st.spinner("🔎 Thinking..."):
         try:
-            response = requests.post("http://127.0.0.1:8000/query/", json={"question": question})
+            response = requests.post(BACKEND_URL, json={"question": question})
 
             if response.status_code == 200:
                 content_type = response.headers.get("content-type", "")
