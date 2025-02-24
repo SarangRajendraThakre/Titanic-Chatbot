@@ -31,8 +31,13 @@ app = FastAPI()
 
 # Setup LangChain Agent
 llm = ChatOpenAI(model_name="gpt-3.5-turbo", openai_api_key=OPENAI_API_KEY)
-agent = create_pandas_dataframe_agent(llm, df, verbose=True, enable_code_execution=True, allow_dangerous_code=False)  # Removed dangerous code execution for security
-
+agent = create_pandas_dataframe_agent(
+    llm=ChatOpenAI(model_name="gpt-3.5-turbo", openai_api_key=OPENAI_API_KEY),
+    dataframe=df,
+    verbose=True,
+    enable_code_execution=True,
+    allow_dangerous_code=True
+)
 # Define input format for query requests
 class QueryRequest(BaseModel):
     question: str
